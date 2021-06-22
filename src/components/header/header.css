@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 784px;
+  min-width: 280px;
+  margin-bottom: 31px;
+}
+.header .logo {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    flex-direction: column;
+  }
+  .header .logo {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 139.2px;
+    height: 35.2px;
+  }
+  /* .header form {
+    width: 100%;
+  } */
+}

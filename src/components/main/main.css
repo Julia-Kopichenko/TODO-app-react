@@ -1,0 +1,18 @@
+.main {
+  border-top: 1px solid #E2E2E2;
+  max-width: 763px;
+  min-width: 280px;
+  margin: 0 24px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    margin: 0;
+  }
+  .main .tab-list {
+    margin-left: 0;
+  }
+}
+
+
+

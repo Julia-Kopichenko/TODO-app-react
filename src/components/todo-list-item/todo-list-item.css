@@ -1,0 +1,112 @@
+.todo-list-item {
+  display: block;
+  font-weight: normal;
+  cursor: pointer;
+  background: #FFFFFF;
+  padding: 16px 12px 13px 23px;
+  width: 100%;
+  min-height: 109px;
+  box-shadow: 0px 6px 20px rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 17px;
+
+}
+.todo-list-item.done .todo-list-item-label {
+  text-decoration-line: line-through;
+}
+/* if task important */
+.todo-list-item.important .todo-list-item-label {
+  font-weight: 900;
+}
+.todo-list-item.important .todo-list-item-label::before {
+  content: url(./star-important.svg);
+  margin-right: 10px;
+}
+.todo-list-item.important .important-button {
+  background: #bdbdbd;
+}
+.todo-item.important .important-button:before {
+  content: "NOT IMPORTANT";
+}
+
+/*--------------------*/
+
+.todo-list-item:hover {
+  border-radius: 4px;
+  box-shadow: 0px 6px 20px rgba(47, 128, 237, 0.75);
+  border: 1px solid rgba(47, 128, 237, 0.75);
+}
+.todo-list-item-label {
+  display: inline-block;
+  max-width: 455px;
+}
+.done {
+  text-decoration-line: line-through;
+}
+.important-button,
+.bin-button {
+  display: none;
+  cursor: pointer;
+  border: 0;
+}
+.important-button:hover,
+.bin-button:hover {
+  box-shadow: 0px 6px 20px rgb(47 128 237 / 75%);
+}
+
+/* .important-button:active, 
+.bin-button:active,
+.important-button:active:focus,
+.bin-button:focus {
+  outline: none;
+} */
+
+.todo-list-item:hover .important-button, 
+.todo-list-item:hover .bin-button {
+  display: block;
+} 
+
+.important-button {
+  width: 183px;
+  height: 36px;
+  padding: 10px 16px;
+  font-weight: 500px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+}
+.important-button--not-active {
+  background: #27AE60;
+}
+.important-button--not-active:before {
+  content: "MARK IMPORTANT";
+}
+
+.bin-button {
+  background: url(./bin.svg) no-repeat;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.todo-list-item .important-button {
+  position: absolute;
+  right: 73px;
+  top: 11px;
+}
+
+.todo-list-item .bin-button {
+  position: absolute;
+  top: 11px;
+  right: 12px;
+}
+@media screen and (max-width: 768px){
+  .todo-list-item {
+    flex-direction: column;
+  }
+}
