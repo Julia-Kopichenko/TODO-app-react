@@ -9,36 +9,20 @@ export default class App extends Component {
   maxId = 100;
 
   state = {
-    todoData: [
-      this.createTodoItem('Task 1'),
-      this.createTodoItem('Task 2'),
-      this.createTodoItem('Task 3')
-    ],
+    todoData: JSON.parse(localStorage.getItem('todo')) || [],
     term: '',
     filter: 'all'
   };
 
   createTodoItem(label) {
-     
-      return {
-        label,
-        important: false,
-        done: false,
-        id:this.maxId++
-      }
+    
+    return {
+      label,
+      important: false,
+      done: false,
+      id:this.maxId++
+    }
   }
-
-  // createTodoItem(label) {
-  //   if (label.length !== 0) {
-     
-  //     return {
-  //       label,
-  //       important: false,
-  //       done: false,
-  //       id:this.maxId++
-  //     }
-  //   }
-  // }
 
   addItem = (text) => {
     
@@ -52,7 +36,7 @@ export default class App extends Component {
       ];
 
       return {
-        todoData:newArr
+        todoData: newArr
       }
     });
   };
@@ -74,12 +58,10 @@ export default class App extends Component {
   toggleProperty(arr, id, propName) {
     const index = arr.findIndex((el) => el.id === id);
 
-    // update object
     const oldItem = arr[index];
     const newItem ={...oldItem, 
       [propName]: !oldItem[propName]};
     
-    // construct new array
     return [
       ...arr.slice(0, index),
       newItem,
@@ -142,6 +124,8 @@ export default class App extends Component {
   render() {
 
     const { todoData, term, filter } = this.state;
+
+    localStorage.setItem('todo', JSON.stringify(todoData));
 
     const visibleItems = this.filter(
       this.search(todoData, term), filter);
