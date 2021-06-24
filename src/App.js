@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { nanoid } from 'nanoid';
 import './index.css';
 
 import Header from './components/header';
@@ -6,7 +7,7 @@ import Main from './components/main';
 
 export default class App extends Component {
   
-  maxId = 100;
+  // maxId = 100;
 
   state = {
     todoData: JSON.parse(localStorage.getItem('todo')) || [],
@@ -20,7 +21,7 @@ export default class App extends Component {
       label,
       important: false,
       done: false,
-      id:this.maxId++
+      id:nanoid()
     }
   }
 
